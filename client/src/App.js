@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Prueba } from "./components/Prueba";
+import EventsList from "./components/EventsList";
+import NavBar from "./components/Navbar";
 import { getETHPrice } from "./utils/getETHPrice";
 
 const App = () => {
@@ -15,7 +17,8 @@ const App = () => {
   return (
     <div>
       <p>The price of ETH is {ethPrice ? ethPrice : "Loading..."}</p>
-      <Prueba />
+      <NavBar />
+      <EventsList ethPrice={ethPrice} />
     </div>
   );
 };
