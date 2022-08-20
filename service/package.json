@@ -1,0 +1,22 @@
+{
+  "name": "service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.mjs",
+    "lint": "eslint"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "eslint": "^8.22.0",
+    "express": "^4.18.1",
+    "mime": "^3.0.0",
+    "nft.storage": "^7.0.0",
+    "nodemon": "^2.0.19"
+  }
+}
