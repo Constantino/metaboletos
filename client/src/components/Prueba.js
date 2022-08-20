@@ -11,14 +11,14 @@ export const Prueba = ({}) => {
 
   return (
     <EventRoot>
-      <FlexRow>
+      {/* <FlexRow>
         <WhiteFlexRow>
           <LockFilled
             src={`https://file.rendit.io/n/rrNt8n1OLYRdup1VObr8.svg`}
           />
           <Text1>metaboletos.xyz</Text1>
         </WhiteFlexRow>
-      </FlexRow>
+      </FlexRow> */}
       <Element1>
         <Fondo>
           <Image1 src={`https://file.rendit.io/n/njYFsMJsP6SZGJyVCWVm.png`} />
