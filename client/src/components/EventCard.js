@@ -1,24 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-const EventCard = (props) => {
+const EventCard = ({ data, ethPrice }) => {
   const ButtonContainedFunction = (e, name) => {
     alert(`${name} was clicked`);
   };
+
+  console.log("ethPrice", ethPrice);
+
   return (
     <Card height={`auto`}>
       <Image1 src={`https://file.rendit.io/n/9Uls8kE49aAmvtKuUD8W.png`} />
       <FlexColumn4>
         <FlexRow11>
           <TituloEvento>
-            <Typography14>{props.data.evtName}</Typography14>
-            <Typography16>IRON TEARS Tour 2022</Typography16>
+            <Typography14>{data.evtTitle1}</Typography14>
+            <Typography16>{data.evtTitle2}</Typography16>
           </TituloEvento>
           <FlexRow1 gap={`10px`}>
             <FlexColumn5>
               <Typography18>Owned by</Typography18>
               <Typography20>
-                <Typography19>Sam</Typography19>
+                <Typography19>{data.ownerName}</Typography19>
               </Typography20>
             </FlexColumn5>
             <Ellipse
@@ -32,7 +35,7 @@ const EventCard = (props) => {
               src={`https://file.rendit.io/n/zLZnqdZcai3UTbgtxDMr.svg`}
             />
             <FlexRow>
-              <Typography21 width={`89px`}>Arena CDMX</Typography21>
+              <Typography21>{data.location}</Typography21>
             </FlexRow>
           </FlexRow1>
           <FlexRow1 gap={`10px`}>
@@ -41,7 +44,7 @@ const EventCard = (props) => {
             />
             <FlexRow14>
               <Typography21 width={`auto`}>
-                2 sep 10:00 PM - 01:00 AM
+                {data.date} {data.duration}
                 {"  "}
               </Typography21>
             </FlexRow14>
@@ -53,10 +56,12 @@ const EventCard = (props) => {
         <StickyCTA>
           <FlexColumn7>
             <ETH gap={`11px`}>
-              <Typography25>0.008 ETH</Typography25>
+              <Typography25>
+                {ethPrice ? (data.price / ethPrice).toFixed(2) : "..."} ETH
+              </Typography25>
             </ETH>
             <ETH gap={`10px`}>
-              <Typography27>300 mXn</Typography27>
+              <Typography27>{data.price} USD</Typography27>
             </ETH>
           </FlexColumn7>
           <ButtonContained
@@ -295,6 +300,7 @@ const Image10 = styled.img`
   height: 29px;
 `;
 const FlexColumn6 = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -304,6 +310,7 @@ const StickyCTA = styled.div`
   display: flex;
   flex-direction: row;
   gap: 11px;
+  width: 100%;
   justify-content: flex-start;
   align-items: center;
   padding: 15px 16px;
@@ -358,7 +365,7 @@ const Typography27 = styled.div`
 const ButtonContained = styled.button`
   box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12),
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.2);
-  width: 186px;
+  width: 140px;
   background-color: #e51376;
   display: flex;
   flex-direction: column;

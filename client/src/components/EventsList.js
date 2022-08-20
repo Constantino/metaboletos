@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { EVENT_NFTS } from "../utils/events";
 import EventCard from "./EventCard";
 
-const EventsList = ({}) => {
+const EventsList = (props) => {
   const ButtonContainedFunction = (e, name) => {
     alert(`${name} was clicked`);
   };
 
-  const events = EVENT_NFTS.map((evt) => <EventCard key={evt.id} data={evt} />);
+  const events = EVENT_NFTS.map((evt) => (
+    <EventCard key={evt.id} data={evt} ethPrice={props.ethPrice} />
+  ));
 
   return (
     <SearchNFTPageRoot>

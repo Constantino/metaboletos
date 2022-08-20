@@ -18,7 +18,7 @@ const App = () => {
     <div>
       <p>The price of ETH is {ethPrice ? ethPrice : "Loading..."}</p>
       <NavBar />
-      <EventsList />
+      <EventsList ethPrice={ethPrice} />
     </div>
   );
 };
