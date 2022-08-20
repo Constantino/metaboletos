@@ -1,133 +1,83 @@
 import React from "react";
 import styled from "styled-components";
-import { EVENT_NFTS } from "../utils/events";
-import EventCard from "./EventCard";
 
-const EventsList = ({}) => {
+const EventCard = (props) => {
   const ButtonContainedFunction = (e, name) => {
     alert(`${name} was clicked`);
   };
-
-  const events = EVENT_NFTS.map((evt) => <EventCard key={evt.id} data={evt} />);
-
   return (
-    <SearchNFTPageRoot>
-      <FlexRow2>
-        <FlexColumn>
-          <LeftSide width={`auto`}>
-            <RazzmatazzFlexRow>
-              <HomeFilled
-                src={`https://file.rendit.io/n/yFczyPjLWZzsCFsJWKXG.svg`}
-              />
-            </RazzmatazzFlexRow>
-            <Typography150 color={`#ffffff`}>Home</Typography150>
-          </LeftSide>
-          <LeftSide width={`auto`}>
-            <Image9 src={`https://file.rendit.io/n/oL7yMgRo6Ij62m0wG6f0.svg`} />
-            <Typography150 color={`rgba(255, 255, 255, 0.5)`}>
-              My tickets
-            </Typography150>
-          </LeftSide>
-          <LeftSide width={`auto`}>
+    <Card height={`auto`}>
+      <Image1 src={`https://file.rendit.io/n/9Uls8kE49aAmvtKuUD8W.png`} />
+      <FlexColumn4>
+        <FlexRow11>
+          <TituloEvento>
+            <Typography14>{props.data.evtName}</Typography14>
+            <Typography16>IRON TEARS Tour 2022</Typography16>
+          </TituloEvento>
+          <FlexRow1 gap={`10px`}>
+            <FlexColumn5>
+              <Typography18>Owned by</Typography18>
+              <Typography20>
+                <Typography19>Sam</Typography19>
+              </Typography20>
+            </FlexColumn5>
+            <Ellipse
+              src={`https://file.rendit.io/n/lnScD5NLjqHz2mVEhFVZ.png`}
+            />
+          </FlexRow1>
+        </FlexRow11>
+        <Bullets>
+          <FlexRow1 gap={`10px`}>
             <HomeFilled
-              src={`https://file.rendit.io/n/zl2IBlmn0hYc8DTUNeEE.svg`}
+              src={`https://file.rendit.io/n/zLZnqdZcai3UTbgtxDMr.svg`}
             />
-            <Typography150 color={`rgba(255, 255, 255, 0.5)`}>
-              Favorites
-            </Typography150>
-          </LeftSide>
-          <LeftSide width={`auto`}>
+            <FlexRow>
+              <Typography21 width={`89px`}>Arena CDMX</Typography21>
+            </FlexRow>
+          </FlexRow1>
+          <FlexRow1 gap={`10px`}>
             <HomeFilled
-              src={`https://file.rendit.io/n/VI8liutKhxJhJKdCFRFB.svg`}
+              src={`https://file.rendit.io/n/bByhV5oYwVrOZc8paQFT.svg`}
             />
-            <Typography150 color={`rgba(255, 255, 255, 0.5)`}>
-              Collections
-            </Typography150>
-          </LeftSide>
-          <LeftSide width={`auto`}>
-            <HomeFilled
-              src={`https://file.rendit.io/n/1PEL3PeOrZmeOC9nVmFQ.svg`}
-            />
-            <Typography150 color={`rgba(255, 255, 255, 0.5)`}>
-              Settings
-            </Typography150>
-          </LeftSide>
-        </FlexColumn>
-        <FlexColumn1 gap={`70px`}>
-          <LeftSide width={`auto`}>
-            <ChevronLeftFilled
-              src={`https://file.rendit.io/n/g3whqbwzIp6GuK75iSEg.svg`}
-            />
-            <Typography>Go back</Typography>
-          </LeftSide>
-          <FlexColumn1 gap={`24px`}>
-            <Typography2>Next events</Typography2>
-            <LeftSide width={`auto`}>
-              <ChevronLeftFilled
-                src={`https://file.rendit.io/n/gNsAxTC2TOO2Xx8q2nLH.svg`}
-              />
-              <ChipFilled>
-                <Container backgroundColor={`#e51376`}>
-                  <Chip textAlign={`left`}>Near me</Chip>
-                </Container>
-              </ChipFilled>
-              <ChipFilled>
-                <Container backgroundColor={`#e51376`}>
-                  <Chip textAlign={`center`}>Festivals</Chip>
-                </Container>
-              </ChipFilled>
-              <ChipFilled>
-                <Container backgroundColor={`rgba(255, 255, 255, 0.16)`}>
-                  <Chip textAlign={`center`}>Concerts</Chip>
-                </Container>
-              </ChipFilled>
-              <Container backgroundColor={`rgba(255, 255, 255, 0.16)`}>
-                <Chip textAlign={`left`}>Tech</Chip>
-              </Container>
-              <ChipFilled>
-                <Container backgroundColor={`rgba(255, 255, 255, 0.16)`}>
-                  <Chip textAlign={`left`}>Theatre</Chip>
-                </Container>
-              </ChipFilled>
-              <ChipFilled>
-                <Container backgroundColor={`rgba(255, 255, 255, 0.16)`}>
-                  <Chip textAlign={`left`}>Culture</Chip>
-                </Container>
-              </ChipFilled>
-              <ChipFilled>
-                <Container backgroundColor={`rgba(255, 255, 255, 0.16)`}>
-                  <Chip textAlign={`left`}>Sports</Chip>
-                </Container>
-              </ChipFilled>
-              <ChipFilled>
-                <Container backgroundColor={`rgba(255, 255, 255, 0.16)`}>
-                  <Chip textAlign={`left`}>Stand Up</Chip>
-                </Container>
-              </ChipFilled>
-              <ChipFilled>
-                <Container backgroundColor={`rgba(255, 255, 255, 0.16)`}>
-                  <Chip textAlign={`left`}>Conferences</Chip>
-                </Container>
-              </ChipFilled>
-              <ChipFilled>
-                <Container backgroundColor={`rgba(255, 255, 255, 0.16)`}>
-                  <Chip textAlign={`left`}>Food</Chip>
-                </Container>
-              </ChipFilled>
-              <ChevronLeftFilled
-                src={`https://file.rendit.io/n/I5oQLE7EnafFEaMOwJtC.svg`}
-              />
-            </LeftSide>
-          </FlexColumn1>
-
-          <FlexColumn1 gap={`40px`}>
-            <FlexRow10>{events}</FlexRow10>
-          </FlexColumn1>
-        </FlexColumn1>
-      </FlexRow2>
-    </SearchNFTPageRoot>
+            <FlexRow14>
+              <Typography21 width={`auto`}>
+                2 sep 10:00 PM - 01:00 AM
+                {"  "}
+              </Typography21>
+            </FlexRow14>
+          </FlexRow1>
+        </Bullets>
+      </FlexColumn4>
+      <Image10 src={`https://file.rendit.io/n/bOILowVehxCZvNGw66HF.svg`} />
+      <FlexColumn6>
+        <StickyCTA>
+          <FlexColumn7>
+            <ETH gap={`11px`}>
+              <Typography25>0.008 ETH</Typography25>
+            </ETH>
+            <ETH gap={`10px`}>
+              <Typography27>300 mXn</Typography27>
+            </ETH>
+          </FlexColumn7>
+          <ButtonContained
+            onClick={(e) => ButtonContainedFunction(e, "ButtonContained")}
+          >
+            <Base>
+              <Button1>MINT</Button1>
+            </Base>
+          </ButtonContained>
+        </StickyCTA>
+        <FlexRow15>
+          <AccessTimeFilled
+            src={`https://file.rendit.io/n/jhy3NSBQ2gLJLciiDA90.svg`}
+          />
+          <Typography29>VIEW HISTORY</Typography29>
+        </FlexRow15>
+      </FlexColumn6>
+    </Card>
   );
 };
+
 const FlexRow = styled.div`
   display: flex;
   flex-direction: row;
@@ -206,7 +156,6 @@ const Chip = styled.div`
 `;
 const FlexRow10 = styled.div`
   width: 1467.45px;
-  flex-wrap: wrap;
   display: flex;
   flex-direction: row;
   gap: 36px;
@@ -667,4 +616,4 @@ const Typography2 = styled.div`
   align-items: flex-start;
 `;
 
-export default EventsList;
+export default EventCard;
