@@ -16,7 +16,7 @@ const EventsList = (props) => {
     <SearchNFTPageRoot>
       <FlexRow2>
         <FlexColumn>
-          <LeftSide width={`auto`}>
+          <LeftSide width={`100%`}>
             <RazzmatazzFlexRow>
               <HomeFilled
                 src={`https://file.rendit.io/n/yFczyPjLWZzsCFsJWKXG.svg`}
@@ -64,17 +64,17 @@ const EventsList = (props) => {
           </LeftSide>
           <FlexColumn1 gap={`24px`}>
             <Typography2>Next events</Typography2>
-            <LeftSide width={`auto`}>
+            <LeftSide width={'auto'}>
               <ChevronLeftFilled
                 src={`https://file.rendit.io/n/gNsAxTC2TOO2Xx8q2nLH.svg`}
               />
               <ChipFilled>
-                <Container backgroundColor={`#e51376`}>
-                  <Chip textAlign={`left`}>Near me</Chip>
+                <Container backgroundColor={`rgba(255, 255, 255, 0.16)`}>
+                  <Chip textAlign={`left`}>Near</Chip>
                 </Container>
               </ChipFilled>
               <ChipFilled>
-                <Container backgroundColor={`#e51376`}>
+                <Container backgroundColor={`rgba(255, 255, 255, 0.16)`}>
                   <Chip textAlign={`center`}>Festivals</Chip>
                 </Container>
               </ChipFilled>
@@ -103,7 +103,7 @@ const EventsList = (props) => {
               </ChipFilled>
               <ChipFilled>
                 <Container backgroundColor={`rgba(255, 255, 255, 0.16)`}>
-                  <Chip textAlign={`left`}>Stand Up</Chip>
+                  <Chip textAlign={`left`}>Stand-Up</Chip>
                 </Container>
               </ChipFilled>
               <ChipFilled>
@@ -192,10 +192,14 @@ const Container = styled.div`
   border-radius: 28.6px;
   padding: 7.15px;
   background-color: ${(props) => props.backgroundColor};
+  &:hover {
+    background-color: #e51376;
+  }
 `;
+
 const Chip = styled.div`
   display: flex;
-  font-size: 23.23px;
+  font-size: 15px;
   font-family: Roboto;
   letter-spacing: 0.29px;
   line-height: 32.17px;
@@ -207,13 +211,14 @@ const Chip = styled.div`
   text-align: ${(props) => props.textAlign};
 `;
 const FlexRow10 = styled.div`
-  width: 1467.45px;
+  width: 100%;
   flex-wrap: wrap;
   display: flex;
   flex-direction: row;
   gap: 36px;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
+  margin-bottom: 50px;
 `;
 const Card = styled.div`
   background-color: #ffffff;
@@ -618,7 +623,6 @@ const FlexRow2 = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  gap: 130px;
   align-items: center;
   padding: 0px 69px;
 `;
@@ -667,6 +671,7 @@ const Typography2 = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  margin-left: 60px
 `;
 
 export default EventsList;
