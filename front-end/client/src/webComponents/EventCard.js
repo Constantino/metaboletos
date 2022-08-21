@@ -24,7 +24,6 @@ const EventCard = ({ eventData, ethPrice }) => {
 
   const mintNFT = async (_ipfsURL) => {
     console.log("ipfs URL: ", _ipfsURL);
-    console.log("about to mint...");
     let address = "0x685E2f73be9b9e74fBa88d2986F700282243d106";
     let privateKey = process.env.WALLET_PK;
     let wallet = new ethers.Wallet(privateKey, web3Provider);
