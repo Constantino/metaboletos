@@ -35,7 +35,7 @@ const EventCard = ({ eventData, ethPrice }) => {
 
   return (
     <Card height={`auto`}>
-      <Image1 src={`https://file.rendit.io/n/9Uls8kE49aAmvtKuUD8W.png`} />
+      <Image1 src={eventData.img} />
       <FlexColumn4>
         <FlexRow11>
           <TituloEvento>
@@ -49,7 +49,7 @@ const EventCard = ({ eventData, ethPrice }) => {
                 <Typography19>{eventData.ownerName}</Typography19>
               </Typography20>
             </FlexColumn5>
-            <Ellipse src={`https://file.rendit.io/n/lnScD5NLjqHz2mVEhFVZ.png`} />
+            <Ellipse src={eventData.ownerAvatar} />
           </FlexRow1>
         </FlexRow11>
         <Bullets>
