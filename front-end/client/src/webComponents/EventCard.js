@@ -1,8 +1,36 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import { ethers } from "ethers";
+import { useWalletConnectClient } from "./../contexts/ClientContext";
+import abi from "../contracts/ABI.json";
 
 const EventCard = ({ eventData, ethPrice }) => {
+
+
+  const {
+    client,
+    session,
+    disconnect,
+    chain,
+    accounts,
+    balances,
+    chainData,
+    isFetchingBalances,
+    isInitializing,
+    onEnable,
+    web3Provider,
+  } = useWalletConnectClient();
+
+  const mintNFT = async (_ipfsURL) => {
+    console.log("ipfs URL: ", _ipfsURL);
+    console.log("about to mint...");
+    let address = "0x685E2f73be9b9e74fBa88d2986F700282243d106";
+    let contract = new ethers.Contract(address, abi, web3Provider);
+    let resultFromMint = await contract.mintToken(_ipfsURL);
+    console.log("Mint method executed, result: ", resultFromMint);
+  }
+
   const [isLoading, setIsLoading] = useState(false);
   const [mintActionResponse, setMintActionResponse] = useState();
   const [err, setErr] = useState("");
@@ -21,7 +49,9 @@ const EventCard = ({ eventData, ethPrice }) => {
           },
         },
       );
-      console.log("response", JSON.stringify(data));
+      //console.log("response", JSON.stringify(data));
+      console.log("response", data.url);
+      await mintNFT(data.url);
       setMintActionResponse(data);
     } catch (err) {
       console.log("error?", err);
