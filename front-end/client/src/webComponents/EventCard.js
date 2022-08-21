@@ -44,15 +44,40 @@ const EventCard = ({ eventData, ethPrice }) => {
         { id: eventData.id },
         {
           headers: {
+            "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
-            Accept: "application/json",
+            mode: 'no-cors'
           },
         },
       );
-      //console.log("response", JSON.stringify(data));
-      console.log("response", data.url);
-      await mintNFT(data.url);
-      setMintActionResponse(data);
+      console.log("id: ", eventData.id);
+      let _id = eventData.id;
+      let payload = {
+        "id": eventData.id
+      }
+      console.log("ipfs url: ", data.url);
+
+      mintNFT(data.url)
+
+      // const requestOptions = {
+      //   method: 'POST',
+      //   body: JSON.stringify( { id: eventData.id } ),
+      //   headers: {
+      //       'Content-Type': 'application/json',
+      //       "Access-Control-Allow-Origin": "*",
+      //   },
+      //   mode: "no-cors"
+      // }
+      // try{
+      //   fetch(process.env.REACT_APP_UPLOAD_NFT_ENDPOINT, requestOptions).then( (data) => mintNFT(data.url));    
+      // }
+      // catch{
+      //   alert("Error");
+      // }
+
+    
+
+      
     } catch (err) {
       console.log("error?", err);
       setErr(err.message);

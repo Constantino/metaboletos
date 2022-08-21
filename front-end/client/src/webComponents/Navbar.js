@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 const NavBar = ({}) => {
   const handleConnect = (e, name) => {
@@ -8,9 +9,11 @@ const NavBar = ({}) => {
   return (
     <AppBarRoot>
       <FlexRow>
-        <LeftSide>
-          <Logo src={`https://file.rendit.io/n/GmqW05WSRfQVzkGcszTf.svg`} />
-        </LeftSide>
+        <Link to="/home">
+          <LeftSide>
+            <Logo src={`https://file.rendit.io/n/GmqW05WSRfQVzkGcszTf.svg`} />
+          </LeftSide>
+        </Link>
         <AppBarSearchInput>
           <SearchFilled
             src={`https://file.rendit.io/n/qAjKScKBPKWeLybQbJaN.svg`}

@@ -151,7 +151,8 @@ export default async function storeNFT(passed_id) {
   const description = found_event.description;
 
   // create a new NFTStorage client using our API key
-  const nftstorage = new NFTStorage({ token: NFT_STORAGE_KEY });
+  let tokenAPI = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDZDRGJFNWE5MmZkODJjNDYyYjUwMTkyNzY3MDdiOTE0NjFmOTBBRDkiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY2MDk3NzQ2ODc2NSwibmFtZSI6Im1ldGFib2xldG9zIn0.IlNlvPbuRhthFmiFrEa05gblU_3IIJtjDtZLKzkTivw";
+  const nftstorage = new NFTStorage({ token: tokenAPI});
   console.log("got nft storage key");
 
   // call client.store, passing in the image & metadata

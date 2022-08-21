@@ -13,16 +13,18 @@ app.get("/", (req, res) => {
   res.send("hello");
 });
 
+
 app.post("/upload/nft", async (req, res) => {
   console.log("req", req.body);
-  const result = await storeNFT(req.body.id);
-  res.status(200).send(result);
+  const { id } = req.body;
+  const result = await storeNFT(id);
+  res.header("Access-Control-Allow-Origin", "*").status(200).send(result);
 });
+
 
 app.get("/read/nft", (req, res) => {
   res.send("read nft");
 });
-
 
 app.listen(port, () =>
   console.log("App is listening on url http://localhost:" + port)
