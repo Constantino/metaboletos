@@ -144,7 +144,9 @@ export default async function storeNFT(passed_id) {
   // load the file from disk
   let found_event = NEW_EVENT_NFTS.find((evt) => evt.id == passed_id);
 
-  const image = await fileFromPath(`./services/assets/0${passed_id}_NFT.png`);
+  const image = await fileFromPath(
+    `./services/assets/0${passed_id}_NFT_Gif.gif`
+  );
   const name = found_event.evtTitle1;
   const description = found_event.description;
 
