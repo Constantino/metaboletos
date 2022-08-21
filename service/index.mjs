@@ -23,6 +23,7 @@ app.get("/read/nft", (req, res) => {
   res.send("read nft");
 });
 
+
 app.listen(port, () =>
   console.log("App is listening on url http://localhost:" + port)
 );
