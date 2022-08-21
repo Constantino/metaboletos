@@ -6,6 +6,7 @@ import { fonts, responsive } from "../styles";
 import Button from "./Button";
 
 const SHeader = styled.div`
+  color: white;
   margin-top: -1px;
   margin-bottom: 1px;
   width: 100%;
@@ -23,6 +24,7 @@ const SHeaderActions = styled.div`
   display: flex;
   & > button:first-child {
     margin-right: 10px !important;
+    color: white;
   }
 `;
 

@@ -17,7 +17,7 @@ const App2 = () => {
   return (
     <div>
       {/* <p>The price of ETH is {ethPrice ? ethPrice : "Loading..."}</p> */}
-      <NavBar />
+      {/* <NavBar /> */}
       {/* <App /> */}
       <EventsList ethPrice={ethPrice} />
     </div>

@@ -29,8 +29,11 @@ import {
   SLanding,
   SLayout,
   SToggleContainer,
+  WalletVersionTitle
 } from "./components/app";
 import { useWalletConnectClient } from "./contexts/ClientContext";
+
+import NavBar from "./webComponents/Navbar";
 
 interface IFormattedRpcResponse {
   method: string;
@@ -272,19 +275,21 @@ export default function App() {
     return !accounts.length && !Object.keys(balances).length ? (
       <SLanding center>
         <Banner />
-        <h6>
-          <span>{`Using v${version || "2.0.0-beta"}`}</span>
-          <sup>
-            (
-            <a
-              style={{ textDecoration: "underline" }}
-              href="https://github.com/WalletConnect/web-examples/tree/main/dapps/react-dapp-v2-with-ethers"
-            >
-              outdated
-            </a>{" "}
-            ⚠️)
-          </sup>
-        </h6>
+        <WalletVersionTitle>
+          <h6>
+            <span>{`Using v${version || "2.0.0-beta"}`}</span>
+            {/* <sup>
+              (
+              <a
+                style={{ textDecoration: "underline" }}
+                href="https://github.com/WalletConnect/web-examples/tree/main/dapps/react-dapp-v2-with-ethers"
+              >
+                outdated
+              </a>{" "}
+              ⚠️)
+            </sup> */}
+          </h6>
+        </WalletVersionTitle>
         <SButtonContainer>
           <h6>Select an Ethereum chain:</h6>
           <SToggleContainer>
@@ -298,7 +303,7 @@ export default function App() {
       </SLanding>
     ) : (
       <SAccountsContainer>
-        <h3>Account</h3>
+        {/* <h3>Account</h3> */}
         <SAccounts>
           {accounts.map(account => {
             return (
@@ -321,7 +326,8 @@ export default function App() {
 
   return (
     <SLayout>
-      <Column maxWidth={1000} spanHeight>
+      <NavBar />
+      <Column maxWidth={1000} >
         <Header ping={onPing} disconnect={disconnect} session={session} />
         <SContent>{isInitializing ? "Loading..." : renderContent()}</SContent>
       </Column>
