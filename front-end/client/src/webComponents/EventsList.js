@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { EVENT_NFTS } from "../utils/events";
 import EventCard from "./EventCard";
 
-const EventsList = (props) => {
+const EventsList = props => {
   const ButtonContainedFunction = (e, name) => {
     alert(`${name} was clicked`);
   };
 
-  const events = EVENT_NFTS.map((evt) => (
-    <EventCard key={evt.id} data={evt} ethPrice={props.ethPrice} />
+  const events = EVENT_NFTS.map(evt => (
+    <EventCard key={evt.id} eventData={evt} ethPrice={props.ethPrice} />
   ));
 
   return (
@@ -18,56 +18,36 @@ const EventsList = (props) => {
         <FlexColumn>
           <LeftSide width={`100%`}>
             <RazzmatazzFlexRow>
-              <HomeFilled
-                src={`https://file.rendit.io/n/yFczyPjLWZzsCFsJWKXG.svg`}
-              />
+              <HomeFilled src={`https://file.rendit.io/n/yFczyPjLWZzsCFsJWKXG.svg`} />
             </RazzmatazzFlexRow>
             <Typography150 color={`#ffffff`}>Home</Typography150>
           </LeftSide>
           <LeftSide width={`auto`}>
             <Image9 src={`https://file.rendit.io/n/oL7yMgRo6Ij62m0wG6f0.svg`} />
-            <Typography150 color={`rgba(255, 255, 255, 0.5)`}>
-              My tickets
-            </Typography150>
+            <Typography150 color={`rgba(255, 255, 255, 0.5)`}>My tickets</Typography150>
           </LeftSide>
           <LeftSide width={`auto`}>
-            <HomeFilled
-              src={`https://file.rendit.io/n/zl2IBlmn0hYc8DTUNeEE.svg`}
-            />
-            <Typography150 color={`rgba(255, 255, 255, 0.5)`}>
-              Favorites
-            </Typography150>
+            <HomeFilled src={`https://file.rendit.io/n/zl2IBlmn0hYc8DTUNeEE.svg`} />
+            <Typography150 color={`rgba(255, 255, 255, 0.5)`}>Favorites</Typography150>
           </LeftSide>
           <LeftSide width={`auto`}>
-            <HomeFilled
-              src={`https://file.rendit.io/n/VI8liutKhxJhJKdCFRFB.svg`}
-            />
-            <Typography150 color={`rgba(255, 255, 255, 0.5)`}>
-              Collections
-            </Typography150>
+            <HomeFilled src={`https://file.rendit.io/n/VI8liutKhxJhJKdCFRFB.svg`} />
+            <Typography150 color={`rgba(255, 255, 255, 0.5)`}>Collections</Typography150>
           </LeftSide>
           <LeftSide width={`auto`}>
-            <HomeFilled
-              src={`https://file.rendit.io/n/1PEL3PeOrZmeOC9nVmFQ.svg`}
-            />
-            <Typography150 color={`rgba(255, 255, 255, 0.5)`}>
-              Settings
-            </Typography150>
+            <HomeFilled src={`https://file.rendit.io/n/1PEL3PeOrZmeOC9nVmFQ.svg`} />
+            <Typography150 color={`rgba(255, 255, 255, 0.5)`}>Settings</Typography150>
           </LeftSide>
         </FlexColumn>
         <FlexColumn1 gap={`70px`}>
           <LeftSide width={`auto`}>
-            <ChevronLeftFilled
-              src={`https://file.rendit.io/n/g3whqbwzIp6GuK75iSEg.svg`}
-            />
+            <ChevronLeftFilled src={`https://file.rendit.io/n/g3whqbwzIp6GuK75iSEg.svg`} />
             <Typography>Go back</Typography>
           </LeftSide>
           <FlexColumn1 gap={`24px`}>
             <Typography2>Next events</Typography2>
-            <LeftSide width={'auto'}>
-              <ChevronLeftFilled
-                src={`https://file.rendit.io/n/gNsAxTC2TOO2Xx8q2nLH.svg`}
-              />
+            <LeftSide width={"auto"}>
+              <ChevronLeftFilled src={`https://file.rendit.io/n/gNsAxTC2TOO2Xx8q2nLH.svg`} />
               <ChipFilled>
                 <Container backgroundColor={`rgba(255, 255, 255, 0.16)`}>
                   <Chip textAlign={`left`}>Near</Chip>
@@ -116,9 +96,7 @@ const EventsList = (props) => {
                   <Chip textAlign={`left`}>Food</Chip>
                 </Container>
               </ChipFilled>
-              <ChevronLeftFilled
-                src={`https://file.rendit.io/n/I5oQLE7EnafFEaMOwJtC.svg`}
-              />
+              <ChevronLeftFilled src={`https://file.rendit.io/n/I5oQLE7EnafFEaMOwJtC.svg`} />
             </LeftSide>
           </FlexColumn1>
 
@@ -142,14 +120,14 @@ const LeftSide = styled.div`
   gap: 16px;
   justify-content: flex-start;
   align-items: center;
-  width: ${(props) => props.width};
+  width: ${props => props.width};
 `;
 const FlexRow1 = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  gap: ${(props) => props.gap};
+  gap: ${props => props.gap};
 `;
 const HomeFilled = styled.img`
   width: 24px;
@@ -164,14 +142,14 @@ const Typography150 = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  color: ${(props) => props.color};
+  color: ${props => props.color};
 `;
 const FlexColumn1 = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: ${(props) => props.gap};
+  gap: ${props => props.gap};
 `;
 const ChevronLeftFilled = styled.img`
   width: 46px;
@@ -191,7 +169,7 @@ const Container = styled.div`
   align-items: center;
   border-radius: 28.6px;
   padding: 7.15px;
-  background-color: ${(props) => props.backgroundColor};
+  background-color: ${props => props.backgroundColor};
   &:hover {
     background-color: #e51376;
     cursor: pointer;
@@ -209,7 +187,7 @@ const Chip = styled.div`
   justify-content: center;
   align-items: center;
   padding: 5.36px 10.72px;
-  text-align: ${(props) => props.textAlign};
+  text-align: ${props => props.textAlign};
 `;
 const FlexRow10 = styled.div`
   width: 100%;
@@ -231,7 +209,7 @@ const Card = styled.div`
   align-items: flex-start;
   border-radius: 16px;
   padding: 0px 0px 16px 0px;
-  height: ${(props) => props.height};
+  height: ${props => props.height};
 `;
 
 const Image1 = styled.img`
@@ -341,7 +319,7 @@ const Typography21 = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  width: ${(props) => props.width};
+  width: ${props => props.width};
 `;
 const FlexRow14 = styled.div`
   display: flex;
@@ -385,7 +363,7 @@ const ETH = styled.div`
   align-self: stretch;
   flex-grow: 1;
   min-width: 96px;
-  gap: ${(props) => props.gap};
+  gap: ${props => props.gap};
 `;
 const Typography25 = styled.div`
   display: flex;
@@ -415,8 +393,8 @@ const Typography27 = styled.div`
   flex-grow: 1;
 `;
 const ButtonContained = styled.button`
-  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12),
-    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+    0px 3px 1px -2px rgba(0, 0, 0, 0.2);
   width: 186px;
   background-color: #e51376;
   display: flex;
@@ -524,8 +502,8 @@ const SearchNFTPageRoot = styled.div`
   align-items: center;
 `;
 const AppBar = styled.div`
-  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12),
-    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+    0px 3px 1px -2px rgba(0, 0, 0, 0.2);
   width: 1840px;
   height: 64px;
   background-color: #101b37;
@@ -580,8 +558,8 @@ const Typography160 = styled.input`
   outline-width: 0px;
 `;
 const ButtonContained8 = styled.button`
-  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12),
-    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+    0px 3px 1px -2px rgba(0, 0, 0, 0.2);
   width: 210px;
   height: 42px;
   background-color: #e51376;
@@ -672,7 +650,7 @@ const Typography2 = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-left: 60px
+  margin-left: 60px;
 `;
 
 export default EventsList;
