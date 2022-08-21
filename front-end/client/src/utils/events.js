@@ -113,7 +113,7 @@ export const EVENT_NFTS = [
     img: event8,
     description: "This is the description event with lots of marketing stuff.",
     evtTitle1: "The ETHKillers",
-    evtTitle2: "",
+    evtTitle2: "Auditorio Nacional",
     location: "404 Arena",
     date: "1 Apr",
     price: 450,
