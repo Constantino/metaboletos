@@ -16,14 +16,14 @@ const EventsList = (props) => {
     <SearchNFTPageRoot>
       <FlexRow2>
         <FlexColumn>
-          <LeftSide width={`auto`}>
+          {/* <LeftSide width={`auto`}>
             <RazzmatazzFlexRow>
               <HomeFilled
                 src={`https://file.rendit.io/n/yFczyPjLWZzsCFsJWKXG.svg`}
               />
             </RazzmatazzFlexRow>
             <Typography150 color={`#ffffff`}>Home</Typography150>
-          </LeftSide>
+          </LeftSide> */}
           <LeftSide width={`auto`}>
             <Image9 src={`https://file.rendit.io/n/oL7yMgRo6Ij62m0wG6f0.svg`} />
             <Typography150 color={`rgba(255, 255, 255, 0.5)`}>
@@ -56,12 +56,12 @@ const EventsList = (props) => {
           </LeftSide>
         </FlexColumn>
         <FlexColumn1 gap={`70px`}>
-          <LeftSide width={`auto`}>
+          {/* <LeftSide width={`auto`}>
             <ChevronLeftFilled
               src={`https://file.rendit.io/n/g3whqbwzIp6GuK75iSEg.svg`}
             />
             <Typography>Go back</Typography>
-          </LeftSide>
+          </LeftSide> */}
           <FlexColumn1 gap={`24px`}>
             <Typography2>Next events</Typography2>
             <LeftSide width={`auto`}>

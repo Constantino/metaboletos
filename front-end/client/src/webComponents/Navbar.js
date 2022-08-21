@@ -21,11 +21,11 @@ const NavBar = ({}) => {
         </AppBarSearchInput>
       </FlexRow>
       <FlexRow1>
-        <ConnectButton onClick={(e) => handleConnect(e, "ButtonContained")}>
+        {/* <ConnectButton onClick={(e) => handleConnect(e, "ButtonContained")}>
           <Base>
             <Button1>CONNECT WALLET</Button1>
           </Base>
-        </ConnectButton>
+        </ConnectButton> */}
       </FlexRow1>
     </AppBarRoot>
   );
