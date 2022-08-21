@@ -7,8 +7,8 @@ import Wrapper from "../Wrapper";
 export const SLayout = styled.div`
   position: relative;
   width: 100%;
-  min-height: 100vh;
   text-align: center;
+  background-color: #101b37;
 `;
 
 export const SContent = styled(Wrapper as any)`
@@ -24,6 +24,7 @@ export const SLanding = styled(Column as any)`
 export const SButtonContainer = styled(Column as any)`
   width: 250px;
   margin: 50px 0;
+  color: white;
 `;
 
 export const SConnectButton = styled(Button as any)`
@@ -70,4 +71,15 @@ export const SAccounts = styled(SFullWidthContainer)`
       flex: 0 1 48%;
     }
   }
+  color: white;
 `;
+
+export const WalletVersionTitle = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  color: white;
+`;
+

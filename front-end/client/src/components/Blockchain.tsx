@@ -138,7 +138,7 @@ const Blockchain: FC<PropsWithChildren<BlockchainProps>> = (
           <p>{name}</p>
         </SChain>
         {!!address && <p>{ellipseAddress(address)}</p>}
-        <SBlockchainChildrenContainer>
+        {/* <SBlockchainChildrenContainer>
           {fetching ? (
             <Column center>
               <SContainer>
@@ -172,7 +172,7 @@ const Blockchain: FC<PropsWithChildren<BlockchainProps>> = (
               ) : null}
             </>
           )}
-        </SBlockchainChildrenContainer>
+        </SBlockchainChildrenContainer> */}
       </SAccount>
     </React.Fragment>
   );
