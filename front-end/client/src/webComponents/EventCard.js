@@ -1,9 +1,34 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
 
-const EventCard = ({ data, ethPrice }) => {
-  const ButtonContainedFunction = (e, name) => {
-    alert(`${name} was clicked`);
+const EventCard = ({ eventData, ethPrice }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [mintActionResponse, setMintActionResponse] = useState();
+  const [err, setErr] = useState("");
+
+  const onClickMint = async () => {
+    setIsLoading(true);
+    console.log("minting ticket id: ", eventData.id);
+    try {
+      const { data } = await axios.post(
+        process.env.REACT_APP_UPLOAD_NFT_ENDPOINT,
+        { id: eventData.id },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        },
+      );
+      console.log("response", JSON.stringify(data));
+      setMintActionResponse(data);
+    } catch (err) {
+      console.log("error?", err);
+      setErr(err.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   console.log("ethPrice", ethPrice);
@@ -14,37 +39,31 @@ const EventCard = ({ data, ethPrice }) => {
       <FlexColumn4>
         <FlexRow11>
           <TituloEvento>
-            <Typography14>{data.evtTitle1}</Typography14>
-            <Typography16>{data.evtTitle2}</Typography16>
+            <Typography14>{eventData.evtTitle1}</Typography14>
+            <Typography16>{eventData.evtTitle2}</Typography16>
           </TituloEvento>
           <FlexRow1 gap={`10px`}>
             <FlexColumn5>
               <Typography18>Owned by</Typography18>
               <Typography20>
-                <Typography19>{data.ownerName}</Typography19>
+                <Typography19>{eventData.ownerName}</Typography19>
               </Typography20>
             </FlexColumn5>
-            <Ellipse
-              src={`https://file.rendit.io/n/lnScD5NLjqHz2mVEhFVZ.png`}
-            />
+            <Ellipse src={`https://file.rendit.io/n/lnScD5NLjqHz2mVEhFVZ.png`} />
           </FlexRow1>
         </FlexRow11>
         <Bullets>
           <FlexRow1 gap={`10px`}>
-            <HomeFilled
-              src={`https://file.rendit.io/n/zLZnqdZcai3UTbgtxDMr.svg`}
-            />
+            <HomeFilled src={`https://file.rendit.io/n/zLZnqdZcai3UTbgtxDMr.svg`} />
             <FlexRow>
-              <Typography21>{data.location}</Typography21>
+              <Typography21>{eventData.location}</Typography21>
             </FlexRow>
           </FlexRow1>
           <FlexRow1 gap={`10px`}>
-            <HomeFilled
-              src={`https://file.rendit.io/n/bByhV5oYwVrOZc8paQFT.svg`}
-            />
+            <HomeFilled src={`https://file.rendit.io/n/bByhV5oYwVrOZc8paQFT.svg`} />
             <FlexRow14>
               <Typography21 width={`auto`}>
-                {data.date} {data.duration}
+                {eventData.date} {eventData.duration}
                 {"  "}
               </Typography21>
             </FlexRow14>
@@ -57,25 +76,21 @@ const EventCard = ({ data, ethPrice }) => {
           <FlexColumn7>
             <ETH gap={`11px`}>
               <Typography25>
-                {ethPrice ? (data.price / ethPrice).toFixed(2) : "..."} ETH
+                {ethPrice ? (eventData.price / ethPrice).toFixed(2) : "..."} ETH
               </Typography25>
             </ETH>
             <ETH gap={`10px`}>
-              <Typography27>{data.price} USD</Typography27>
+              <Typography27>{eventData.price} USD</Typography27>
             </ETH>
           </FlexColumn7>
-          <ButtonContained
-            onClick={(e) => ButtonContainedFunction(e, "ButtonContained")}
-          >
+          <ButtonContained onClick={e => onClickMint()}>
             <Base>
               <Button1>MINT</Button1>
             </Base>
           </ButtonContained>
         </StickyCTA>
         <FlexRow15>
-          <AccessTimeFilled
-            src={`https://file.rendit.io/n/jhy3NSBQ2gLJLciiDA90.svg`}
-          />
+          <AccessTimeFilled src={`https://file.rendit.io/n/jhy3NSBQ2gLJLciiDA90.svg`} />
           <Typography29>VIEW HISTORY</Typography29>
         </FlexRow15>
       </FlexColumn6>
@@ -95,14 +110,14 @@ const LeftSide = styled.div`
   gap: 16px;
   justify-content: flex-start;
   align-items: center;
-  width: ${(props) => props.width};
+  width: ${props => props.width};
 `;
 const FlexRow1 = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  gap: ${(props) => props.gap};
+  gap: ${props => props.gap};
 `;
 const HomeFilled = styled.img`
   width: 24px;
@@ -117,14 +132,14 @@ const Typography150 = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  color: ${(props) => props.color};
+  color: ${props => props.color};
 `;
 const FlexColumn1 = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: ${(props) => props.gap};
+  gap: ${props => props.gap};
 `;
 const ChevronLeftFilled = styled.img`
   width: 46px;
@@ -144,7 +159,7 @@ const Container = styled.div`
   align-items: center;
   border-radius: 28.6px;
   padding: 7.15px;
-  background-color: ${(props) => props.backgroundColor};
+  background-color: ${props => props.backgroundColor};
 `;
 const Chip = styled.div`
   display: flex;
@@ -157,7 +172,7 @@ const Chip = styled.div`
   justify-content: center;
   align-items: center;
   padding: 5.36px 10.72px;
-  text-align: ${(props) => props.textAlign};
+  text-align: ${props => props.textAlign};
 `;
 const FlexRow10 = styled.div`
   width: 1467.45px;
@@ -177,7 +192,7 @@ const Card = styled.div`
   align-items: flex-start;
   border-radius: 16px;
   padding: 0px 0px 16px 0px;
-  height: ${(props) => props.height};
+  height: ${props => props.height};
 `;
 
 const Image1 = styled.img`
@@ -287,7 +302,7 @@ const Typography21 = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  width: ${(props) => props.width};
+  width: ${props => props.width};
 `;
 const FlexRow14 = styled.div`
   display: flex;
@@ -333,7 +348,7 @@ const ETH = styled.div`
   align-self: stretch;
   flex-grow: 1;
   min-width: 96px;
-  gap: ${(props) => props.gap};
+  gap: ${props => props.gap};
 `;
 const Typography25 = styled.div`
   display: flex;
@@ -363,8 +378,8 @@ const Typography27 = styled.div`
   flex-grow: 1;
 `;
 const ButtonContained = styled.button`
-  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12),
-    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+    0px 3px 1px -2px rgba(0, 0, 0, 0.2);
   width: 140px;
   background-color: #e51376;
   display: flex;
@@ -472,8 +487,8 @@ const SearchNFTPageRoot = styled.div`
   align-items: center;
 `;
 const AppBar = styled.div`
-  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12),
-    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+    0px 3px 1px -2px rgba(0, 0, 0, 0.2);
   width: 1840px;
   height: 64px;
   background-color: #101b37;
@@ -528,8 +543,8 @@ const Typography160 = styled.input`
   outline-width: 0px;
 `;
 const ButtonContained8 = styled.button`
-  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12),
-    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+    0px 3px 1px -2px rgba(0, 0, 0, 0.2);
   width: 210px;
   height: 42px;
   background-color: #e51376;
