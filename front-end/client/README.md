@@ -1,56 +1,36 @@
-# React dApp (with v2 EthereumProvider + Ethers.js)
+# MetaBoletos
 
-> **⚠️ This provider-based example is currently reliant on the deprecated `2.0.0-beta.26` SDK. ⚠️**
->
-> This example will be updated to be compatible with the latest v2 SDK (`2.0.0-beta.100+`) in due time.
-> In the meantime, please use the up-to-date [standalone client example](../react-dapp-v2/).
+Welcome to MetaBoletos, now **YOU** own the tickets to your favorite events!
 
-🔗 Live dapp demo - https://react-dapp-v2-with-ethers.vercel.app <br />
-🔗 Live wallet demo - https://react-wallet.walletconnect.com/ <br />
-📚 WalletConnect v2 Docs - https://docs.walletconnect.com/2.0
+## Live Demo
 
-## Overview
+https://metaboletos.netlify.app/
 
-This is an example implementation of a React dApp (generated via `create-react-app`) using the v2 [`EthereumProvider`](https://docs.walletconnect.com/2.0/quick-start/dapps/ethereum-provider) together with [`Ethers.js`](https://docs.ethers.io/v5/) to:
+## Technology Used
+- IPFS (used to store art of each NFT ticket)
+- Chainlink (used so we could display price in eth and USD)
+- Wallet connect (for authentication and signature of transactions as Minting NFT tickets)
 
-- handle pairings
-- manage sessions
-- send JSON-RPC requests to a paired wallet
+## How it works
 
-## Running locally
+![MetaBoletos Events](https://i.imgur.com/FJFFYWE.png)
 
-Install the app's dependencies:
+![MetaBoletos MainPage](https://i.imgur.com/XYBVmG2.png)
 
-```bash
+## Installation
+Require to have a file .env with the next variables:
+REACT_APP_PROJECT_ID=<Your project ID here from wallet connect cloud>
+REACT_APP_INFURA_ID=<your infura ID here>
+REACT_APP_RELAY_URL=wss://relay.walletconnect.com
+REACT_APP_UPLOAD_NFT_ENDPOINT=https://metaboletos.herokuapp.com/upload/nft
+
+From the `front-end/client` folder, run:
+
+```
 yarn
-```
 
-Set up your local environment variables by copying the example into your own `.env.local` file:
-
-```bash
-cp .env.local.example .env.local
-```
-
-Your `.env.local` now contains the following environment variables:
-
-- `REACT_APP_PROJECT_ID` (placeholder) - You can generate your own ProjectId at https://cloud.walletconnect.com
-- `REACT_APP_INFURA_ID` (placeholder) - You can generate your own Infura ID via https://infura.io/
-- `REACT_APP_RELAY_URL` (already set)
-
-## Develop
-
-```bash
 yarn start
 ```
 
-## Test
-
-```bash
-yarn test
-```
-
-## Build
-
-```bash
-yarn build
-```
+## Usage
+This platform will be used to purchase tickets for events in the future allowing people to verify authenticity of the tickets and keep an NFT as a badge for attend the event. Also when the information is on blockchain then a system to verify that the user owns a ticket can be used. For example a tablet at the entrance with a Wallet conect window where the user scans to login and the system verifies the ticket allowing or denying the access
