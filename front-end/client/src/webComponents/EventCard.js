@@ -26,9 +26,10 @@ const EventCard = ({ eventData, ethPrice }) => {
     console.log("ipfs URL: ", _ipfsURL);
     console.log("about to mint...");
     let address = "0x685E2f73be9b9e74fBa88d2986F700282243d106";
-    let contract = new ethers.Contract(address, abi, web3Provider);
+    let privateKey = process.env.WALLET_PK;
+    let wallet = new ethers.Wallet(privateKey, web3Provider);
+    let contract = new ethers.Contract(address, abi, wallet);
     let resultFromMint = await contract.mintToken(_ipfsURL);
-    console.log("Mint method executed, result: ", resultFromMint);
   }
 
   const [isLoading, setIsLoading] = useState(false);
