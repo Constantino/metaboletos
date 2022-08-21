@@ -13,12 +13,12 @@ const App2 = () => {
     return value;
   };
 
-  displayPrice().then((val) => setEthPrice(val));
+  displayPrice().then(val => setEthPrice(val));
   return (
     <div>
       {/* <p>The price of ETH is {ethPrice ? ethPrice : "Loading..."}</p> */}
+      <App />
       {/* <NavBar /> */}
-      {/* <App /> */}
       <EventsList ethPrice={ethPrice} />
     </div>
   );
