@@ -3,7 +3,13 @@ import styled from "styled-components";
 import { EVENT_NFTS } from "../utils/events";
 import EventCard from "./EventCard";
 
+
+
 const EventsList = props => {
+
+
+
+
   const ButtonContainedFunction = (e, name) => {
     alert(`${name} was clicked`);
   };

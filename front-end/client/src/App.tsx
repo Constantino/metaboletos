@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { version } from "@walletconnect/client/package.json";
 import * as encoding from "@walletconnect/encoding";
-import { BigNumber, utils } from "ethers";
+import { BigNumber, utils, ethers } from "ethers";
 import { TypedDataField } from "@ethersproject/abstract-signer";
 import { Transaction } from "@ethereumjs/tx";
 
@@ -34,6 +34,8 @@ import {
 import { useWalletConnectClient } from "./contexts/ClientContext";
 
 import NavBar from "./webComponents/Navbar";
+
+import abi from "./contracts/ABI.json";
 
 interface IFormattedRpcResponse {
   method: string;
@@ -97,6 +99,15 @@ export default function App() {
     openPingModal();
     await ping();
   };
+
+  const mintNFT = async (_ipfsURL: string) => {
+    console.log("ipfs URL: ", _ipfsURL);
+    console.log("about to mint...");
+    let address = "0x685E2f73be9b9e74fBa88d2986F700282243d106";
+    let contract = new ethers.Contract(address, abi, web3Provider);
+    let resultFromMint = await contract.mintToken(_ipfsURL);
+    console.log("Mint method executed, result: ", resultFromMint);
+  }
 
   const testSendTransaction: () => Promise<IFormattedRpcResponse> = async () => {
     if (!web3Provider) {
